@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: django-website-ingress
+  namespace: argocd
   labels:
     app: django-website
   annotations:
