@@ -2,7 +2,7 @@ name: kubernates-configuration
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
 
 env:
