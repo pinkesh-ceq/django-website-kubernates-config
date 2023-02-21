@@ -15,6 +15,7 @@ env:
   DEPLOYMENT_FILE: deployment.yml
   SERVICE_FILE: service.yml
   INGRESS_FILE: ingress.yml
+  ARGOCD_FILE: application.yml
 
 jobs:
 
@@ -61,8 +62,8 @@ jobs:
          kubectl get pods
          kubectl delete -f $DEPLOYMENT_FILE
          kubectl delete -f $SERVICE_FILE
-        #  kubectl apply -f $INGRESS_FILE
-        #  kubectl apply -f $ARGOCD_FILE
+         kubectl apply -f $INGRESS_FILE
+         kubectl apply -f $ARGOCD_FILE
 
 
 
