@@ -62,8 +62,8 @@ jobs:
          kubectl get pods
          kubectl apply -f $DEPLOYMENT_FILE
          kubectl apply -f $SERVICE_FILE
-        #  kubectl apply -f $INGRESS_FILE
          kubectl apply -f $ARGOCD_FILE
+        #  kubectl apply -f $INGRESS_FILE
 
 
 
