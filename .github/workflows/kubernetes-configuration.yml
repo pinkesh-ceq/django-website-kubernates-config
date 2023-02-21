@@ -11,7 +11,7 @@ on:
 
 env:
   CLUSTER_NAME: Pinkesh-argoCD
-  AWS_REGION: ap-south-1
+  # AWS_REGION: ap-south-1
   DEPLOYMENT_FILE: deployment.yml
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: $AWS_REGION
+          aws-region: ap-south-1
           
       - name: Install kubectl
         run: |
@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@v3
         
       - name: update kubeconfig
-        run: aws eks update-kubeconfig --name $CLUSTER_NAME --region $AWS_REGION
+        run: aws eks update-kubeconfig --name $CLUSTER_NAME --region ap-south-1
       
       - name: deployment to eks
         run: |
