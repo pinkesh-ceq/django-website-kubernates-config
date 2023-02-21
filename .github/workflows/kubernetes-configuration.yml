@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
 
 env:
-  CLUSTER_NAME: "Pinkesh-argoCD"
-  AWS_REGION: "ap-south-1"
-  DEPLOYMENT_FILE: "deployment.yml"
+  CLUSTER_NAME: Pinkesh-argoCD
+  AWS_REGION: ap-south-1
+  DEPLOYMENT_FILE: deployment.yml
 
 jobs:
 
