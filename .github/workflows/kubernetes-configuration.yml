@@ -11,8 +11,9 @@ on:
 
 env:
   CLUSTER_NAME: Pinkesh-GitOps-argoCD
-  # AWS_REGION: ap-south-1
+  AWS_REGION: ap-south-1
   DEPLOYMENT_FILE: deployment.yml
+  SERVICE_FILE: service.yml
 
 jobs:
 
@@ -30,7 +31,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1
+          aws-region: ${{ env.AWS_REGION }}
 
       # - name: Configure AWS Credentials
       #   uses: aws-actions/configure-aws-credentials@v1
@@ -52,12 +53,13 @@ jobs:
         uses: actions/checkout@v3
         
       - name: update kubeconfig
-        run: aws eks update-kubeconfig --name $CLUSTER_NAME --region ap-south-1
+        run: aws eks update-kubeconfig --name $CLUSTER_NAME --region ${{ env.AWS_REGION }}
       
       - name: deployment to eks
         run: |
-         kubectl apply -f $DEPLOYMENT_FILE
          kubectl get pods
+         kubectl apply -f $DEPLOYMENT_FILE
+         kubectl apply -f $SERVICE_FILE
 
 
 
