@@ -1,0 +1,45 @@
+name: kubernates-configuration
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+env:
+  CLUSTER_NAME = "Pinkesh-argoCD"
+  AWS_REGION = "ap-south-1"
+  DEPLOYMENT_FILE = "deployment.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Hello, world!
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: $AWS_REGION
+          
+      # - name: Install kubectl
+      #   run: |
+      #     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+      #     curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+      #     echo "$(<kubectl.sha256) kubectl" | sha256sum --check
+            
+      #       sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+      #       kubectl version --client
+
+      # - name: Checkout
+      #   uses: actions/checkout@v3
+        
+      # - name: update kubeconfig
+      #   run: aws eks update-kubeconfig --name $CLUSTER_NAME --region $AWS_REGION
+      
+      # - name: deployment to eks
+      #   run: |
+      #    kubectl apply -f $DEPLOYMENT_FILE
+      #    kubectl get pods
