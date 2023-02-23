@@ -4,19 +4,19 @@ metadata:
   name: django-website
   namespace: argocd
   labels:
-    app: django-website  #dep label
+    app: django-deployment  #dep label
 spec:
   selector:
     matchLabels:
-      app: django-website #pod label
+      app: django-deployment #pod label
   replicas: 2 
   template:
     metadata:
       labels:
-        app: django-website #container label
+        app: django-deployment #container label
     spec:
       containers:
-      - name: django
+      - name: django-container
         image: pinkeshceq/django-website:1.1
         imagePullPolicy : Always
         ports:

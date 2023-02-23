@@ -4,7 +4,7 @@ metadata:
   name: django-website-ingress
   namespace: argocd
   labels:
-    app: django-website
+    app: django-deployment
   annotations:
     # Ingress Core Settings
     kubernetes.io/ingress.class: "alb"
