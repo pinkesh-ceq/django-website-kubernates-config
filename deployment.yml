@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: django
-        image: pinkeshceq/django-website:34
+        image: pinkeshceq/django-website:35
         imagePullPolicy : Always
         ports:
         - containerPort: 8000
