@@ -20,3 +20,8 @@ spec:
         automated:
             selfHeal: true
             prune: true
+
+    controller:
+    env:
+    - name: ARGOCD_RECONCILIATION_TIMEOUT
+      value: 10s
